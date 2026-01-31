@@ -5,13 +5,13 @@
     <%= link_to "新規投稿へ", new_tweet_path %>
   <% end %>
 <% end %>
+
 <div class="tweets-container">
   <% @tweets.each do |t| %>
   <div class="tweet">
     <%= t.user.email %> 
     <%= t.body %>
     <%= link_to "詳細へ", tweet_path(t.id) %> 
-    <%= link_to t.zyanru, tweet_matome_path(1) %>
   </div>
    <% end %>
 </div>

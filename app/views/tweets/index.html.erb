@@ -1,0 +1,25 @@
+<h1>記事一覧、あとでかえる</h1>
+<h3>一覧ページ</h3>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to "新規投稿へ", new_tweet_path %>
+  <% end %>
+<% end %>
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+  <div class="tweet">
+    <%= t.user.email %> 
+    <%= t.body %>
+    <%= link_to "詳細へ", tweet_path(t.id) %> 
+    <%= link_to t.zyanru, tweet_matome_path(1) %>
+  </div>
+   <% end %>
+</div>
+
+<%= link_to "肌をきれいにしたいの一覧", tweet_matome_path(1) %>
+<%= link_to "いつもポジティブでいたいの一覧", tweet_matome_path(2) %>
+<%= link_to "次の日かわいく、かっこよくいたいの一覧", tweet_matome_path(3) %>
+<%= link_to "立ち振る舞いをきれいにしたいの一覧", tweet_matome_path(4) %>
+<%= link_to "食べすぎ飲み過ぎを解決したいの一覧", tweet_matome_path(5) %>
+<%= link_to "自信を持ちたいの一覧", tweet_matome_path(6) %>
+

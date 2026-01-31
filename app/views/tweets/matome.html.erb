@@ -1,0 +1,6 @@
+<% @tweets.each do |t| %>
+    <% unless @tweet ==  t.zyanru %>
+  <% else %>
+    <%= link_to t.body, tweet_path(t.id) %>
+   <% end %>
+<% end %> 

@@ -1,0 +1,27 @@
+<h1>(後でかえる)</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @tweet do |f| %>
+
+# データ型がstringで自由記述の入力フォーム
+  <div class="field">
+    <%= f.label :入力するところ %>
+    <%= f.text_field :body, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ジャンルの数 %>
+    <%= f.text_field :zyanru, :size => 30 %>
+  </div>
+    <%= f.label :ジャンル  %>
+    <%= f.select :zyanru, 
+    [["肌をきれいにしたい", "1"], 
+    ["いつもポジティブでいたい", "2"], 
+    ["次の日かわいく、かっこよくいたい", "3"], 
+    ["立ち振る舞いをきれいにしたい", "4"], 
+    ["食べすぎ飲み過ぎを解決したい", "5"], 
+    ["自信を持ちたい", "6"]], include_blank: "選択して下さい" %>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", tweets_path %>
